@@ -24,12 +24,18 @@ sudo chmod +x /home/pi/x1201/power-monitor.sh
 sudo chmod +x /usr/local/bin/*.sh
 
 **4. Install the services:**
-sudo systemctl daemon-reload
-sudo systemctl enable battery
-sudo systemctl start battery
 
 sudo systemctl daemon-reload
+
+sudo systemctl enable battery
+
+sudo systemctl start battery
+
+
+sudo systemctl daemon-reload
+
 sudo systemctl enable power-monitor
+
 sudo systemctl start power-monitor
 
 ## Battery service:
@@ -37,12 +43,15 @@ sudo systemctl start power-monitor
 It exports the GPIO16 pin (translates it to actual number gpio587) and sets it to high (1), which means charging disabled. So after boot or reboot, the batteries are not charged.
 
 In the file /home/pi/usefulcodes.txt, there are the codes which can be run afterwards, which let the corresponding bash file of the two run:
+
 sudo bash /usr/local/bin/enable-charging.sh
+
 sudo bash /usr/local/bin/disable-charging.sh
 
 The enabled state is highly likely an automated charging management, but I like to charge mines manually, since I use them only for shutdown which happens not too often.
 
 The state of the batteries can be check with this code, also in the usefulcodes.txt:
+
 sudo python3 /home/pi/x1202/battery.py
 
 ## Power monitor service:
