@@ -3,7 +3,9 @@ Geekworm X1202 UPS HAT files for Raspberry Pi 5 Bookworm
 
 These are the files which can be used for the UPS HAT to safe shutdown of Pi in case of power loss, and to manually turn on and off the charging of the batteries.
 
-If you want to use the X2012 as a backup power source, please consult the official github page of it.
+If you want to use the X2012 as a backup power source, please consult the official pages of it:
+https://suptronics.com/Raspberrypi/Power_mgmt/x120x-v1.0_software.html
+https://github.com/suptronics/x120x.git
 
 **1. Create the UPS files directory:**
 sudo mkdir /home/pi/x1202
