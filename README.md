@@ -24,6 +24,7 @@ sudo systemctl enable power-monitor
 sudo systemctl start power-monitor
 
 Battery service:
+
 It exports the GPIO16 pin (translates it to actual number gpio587) and sets it to high (1), which means charging disabled. So after boot or reboot, the batteries are not charged.
 
 In the file /home/pi/usefulcodes.txt, there are the codes which can be run afterwards, which run the corresponding bash file of the two:
@@ -33,4 +34,5 @@ sudo bash /usr/local/bin/disable-charging.sh
 The enabled state is highly likely an automated charging management, but I like to charge mines manually, since I use them only for shutdown which happens not too often.
 
 Power monitor service:
+
 It checks the power loss in an endless loop on the GPIO6 pin and run the poweroff on the Pi in case of power loss. 3 seconds after shutdown of the Pi, the UPS will be turned off or rather it goes in a battery power saving state.
