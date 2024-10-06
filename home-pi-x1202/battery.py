@@ -7,7 +7,6 @@ import gpiod
 import subprocess
 
 # Global settings
-# GPIO26 is for x728 V2.1/V2.2/V2.3, GPIO13 is for X728 v1.2/v1.3/V2.0
 GPIO_PORT = 26
 I2C_ADDR = 0x36
 
