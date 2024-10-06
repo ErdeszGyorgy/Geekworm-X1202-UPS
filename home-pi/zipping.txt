@@ -1,27 +1,3 @@
-zip -r /home/pi/FTP/files/geoblog.zip /var/www/html/geoblog
-
-zip -r /home/pi/FTP/files/talaltcica.zip /var/www/html/talaltcica
-
-SSD TEMPERATURE:
-
-sudo smartctl -x /dev/nvme0n1 | grep 'Temperature:'
-
-FULL SMART INFO:
-
-sudo smartctl -A /dev/nvme0n1
-
-sudo smartctl -x /dev/nvme0n1
-
-SSD TRIM:
-
-sudo fstrim -v /
-
-sudo systemctl status fstrim.timer
-
-SSD SPEED:
-
-sudo hdparm -t --direct /dev/nvme0n1
-
 BATTERY CHECK:
 
 sudo python3 /home/pi/x1202/battery.py
@@ -32,6 +8,6 @@ sudo bash /usr/local/bin/enable-charging.sh
 
 sudo bash /usr/local/bin/disable-charging.sh
 
-
+SHOWING THE GPIO16 VALUE:
 
 cat /sys/class/gpio/gpio587/value
