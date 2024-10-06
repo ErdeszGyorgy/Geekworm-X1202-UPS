@@ -9,21 +9,21 @@ https://suptronics.com/Raspberrypi/Power_mgmt/x120x-v1.0_software.html
 
 https://github.com/suptronics/x120x.git
 
-**1. Create the UPS files directory:**
+*1. Create the UPS files directory:*
 
 sudo mkdir /home/pi/x1202
 
 The other three are existing like etc-systemd-system => /etc/systemd/system and so on.
 
-**2. Copy the files in their directories.**
+*2. Copy the files in their directories.*
 
-**3. Make the .sh files executable:**
+*3. Make the .sh files executable:*
 
 sudo chmod +x /home/pi/x1201/power-monitor.sh
 
 sudo chmod +x /usr/local/bin/*.sh
 
-**4. Install the services:**
+*4. Install the services:*
 
 sudo systemctl daemon-reload
 
