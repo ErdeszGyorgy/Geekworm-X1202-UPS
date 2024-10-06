@@ -1,0 +1,12 @@
+[Unit]
+Description=Shutdown UPS on Power Loss
+After=multi-user.target
+
+[Service]
+ExecStart=/home/pi/x1202/power-monitor.sh
+WorkingDirectory=/home/pi/x1202/
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
