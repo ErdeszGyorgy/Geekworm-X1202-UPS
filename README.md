@@ -57,4 +57,4 @@ sudo python3 /home/pi/x1202/battery.py
 
 ## Power monitor service:
 
-It checks the power loss in an endless loop on the GPIO6 pin and run the poweroff on the Pi in case of power loss. 3 seconds after shutdown of the Pi, the UPS will be turned off automatically or rather it goes in a battery power saving state.
+It checks the power loss in an endless loop on the GPIO6 pin and run the poweroff on the Pi in case of power loss. 3 seconds after shutdown of the Pi, the UPS will be turned off automatically or rather it goes into a battery power saving state.
