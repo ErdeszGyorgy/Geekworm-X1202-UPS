@@ -19,7 +19,7 @@ The other three are existing like etc-systemd-system => /etc/systemd/system and 
 
 *3. Make the .sh files executable:*
 
-sudo chmod +x /home/pi/x1201/power-monitor.sh
+sudo chmod +x /home/pi/x1202/power-monitor.sh
 
 sudo chmod +x /usr/local/bin/*.sh
 
