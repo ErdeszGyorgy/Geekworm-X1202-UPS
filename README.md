@@ -51,7 +51,7 @@ sudo bash /usr/local/bin/disable-charging.sh
 
 The enabled state is highly likely an automated charging management, but I like to charge mines manually, since I use them only for shutdown which happens not too often.
 
-The state of the batteries can be check with this code, also in the usefulcodes.txt:
+The state of the batteries can be checked with this code, also in the usefulcodes.txt:
 
 sudo python3 /home/pi/x1202/battery.py
 
