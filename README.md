@@ -58,12 +58,12 @@ debugfs on /sys/kernel/debug type debugfs (...)
 
 then it’s already mounted.
 
-4. Mount it manually (temporary)
+2. Mount it manually (temporary)
 If not mounted, run:
 
 sudo mount -t debugfs none /sys/kernel/debug
 
-6. View GPIO info
+3. View GPIO info
 Now you can read the GPIO debug file:
 
 sudo cat /sys/kernel/debug/gpio
@@ -74,7 +74,7 @@ gpio-585 (GPIO16              |sysfs               ) out hi
 
 This shows the actual kernel-level global GPIO number, whether it is gpio587, or gpio585 (in latter case with the new hardware, that is, another pi 5 board).
 
-8. (Optional) Make the mount permanent
+4. (Optional) Make the mount permanent
 To have it auto-mounted at boot:
 
 echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" | sudo tee -a /etc/fstab
