@@ -49,7 +49,7 @@ So it is more complicated since the actual number depends on the hardware.
 You have to enable debugfs.
 
 1. Check if debugfs is already mounted
-2. 
+
 mount | grep debugfs
 
 If you get something like:
