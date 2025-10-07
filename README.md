@@ -43,6 +43,33 @@ sudo systemctl start power-monitor
 
 It exports the GPIO16 pin (translates it to actual number gpio587) and sets it to high (1), which means charging disabled. So after boot or reboot, the batteries are not charged.
 
+## Check the GPIO16
+
+So it is more complicated since the actual number depends on the hardware.
+You have to enable debugfs.
+1. Check if debugfs is already mounted
+mount | grep debugfs
+If you get something like:
+debugfs on /sys/kernel/debug type debugfs (...)
+then it’s already mounted.
+2. Mount it manually (temporary)
+If not mounted, run:
+sudo mount -t debugfs none /sys/kernel/debug
+3. View GPIO info
+Now you can read the GPIO debug file:
+sudo cat /sys/kernel/debug/gpio
+You have to search for something liek this for GPIO16:
+gpio-585 (GPIO16              |sysfs               ) out hi
+This shows the actual kernel-level global GPIO number, whether it is gpio587, or gpio585 (in latter case with the new hardware, that is, another pi 5 board).
+4. (Optional) Make the mount permanent
+To have it auto-mounted at boot:
+echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" | sudo tee -a /etc/fstab
+Then reboot.
+
+This GPIO16 number like gpio585 must be set in the
+
+## Set the charging manually
+
 In the file /home/pi/usefulcodes.txt, there are the codes which can be run afterwards, which let the corresponding bash file of the two run:
 
 sudo bash /usr/local/bin/enable-charging.sh
