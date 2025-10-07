@@ -68,11 +68,11 @@ Now you can read the GPIO debug file:
 
 sudo cat /sys/kernel/debug/gpio
 
-You have to search for something liek this for GPIO16:
+You have to search for something like this for GPIO16:
 
 gpio-585 (GPIO16              |sysfs               ) out hi
 
-This shows the actual kernel-level global GPIO number, whether it is gpio587, or gpio585 (in latter case with the new hardware, that is, another pi 5 board).
+This shows the actual kernel-level global GPIO number, whether it is gpio587, or gpio585 (in latter case with the new hardware, that is, another pi 5 board in my case).
 
 4. (Optional) Make the mount permanent
 To have it auto-mounted at boot:
