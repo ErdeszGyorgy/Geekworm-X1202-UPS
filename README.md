@@ -69,6 +69,7 @@ Then reboot.
 This GPIO16 number like gpio585 must be set in the battery.py file in this line:
 
 Path to the GPIO value file
+
 gpio_value_path = "/sys/class/gpio/gpio585/value"
 
 ## Set the charging manually
