@@ -66,7 +66,9 @@ To have it auto-mounted at boot:
 echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" | sudo tee -a /etc/fstab
 Then reboot.
 
-This GPIO16 number like gpio585 must be set in the
+This GPIO16 number like gpio585 must be set in the battery.py file in this line:
+# Path to the GPIO value file
+gpio_value_path = "/sys/class/gpio/gpio587/value"
 
 ## Set the charging manually
 
