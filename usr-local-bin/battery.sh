@@ -5,8 +5,10 @@ GPIO=16
 # Find the actual GPIO pin number
 GPIO=$(cat /sys/kernel/debug/gpio | grep "GPIO$GPIO" | awk -F'gpio-' '{print $2}' | awk -F' ' '{print $1}')
 
-# Export the GPIO pin
-echo "$GPIO" > /sys/class/gpio/export
+# ONLY export the GPIO pin if it hasn't been exported yet
+if [ ! -d "/sys/class/gpio/gpio$GPIO" ]; then
+    echo "$GPIO" > /sys/class/gpio/export
+fi
 
 # Set direction to output
 echo "out" > /sys/class/gpio/gpio$GPIO/direction
