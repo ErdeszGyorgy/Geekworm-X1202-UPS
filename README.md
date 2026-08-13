@@ -41,7 +41,7 @@ sudo systemctl start power-monitor
 
 ## Battery service:
 
-It exports the GPIO16 pin (translates it to actual number gpio587) and sets it to high (1), which means charging disabled. So after boot or reboot, the batteries are not charged.
+It exports the GPIO16 pin (translates it to actual number gpio587) and sets it to high (1), which means charging disabled. So after boot or reboot, the batteries are not charging.
 
 ## Check the GPIO16
 
