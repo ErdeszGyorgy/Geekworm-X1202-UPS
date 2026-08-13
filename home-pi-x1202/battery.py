@@ -16,20 +16,37 @@ line = chip.get_line(GPIO_PORT)
 line.request(consumer='example', type=gpiod.LINE_REQ_DIR_OUT)
 
 def readVoltage(bus):
-    address = I2C_ADDR
-    read = bus.read_word_data(address, 2)
-    swapped = struct.unpack("<H", struct.pack(">H", read))[0]
-    voltage = swapped * 1.25 / 1000 / 16
-    return voltage
+    try:
+        address = I2C_ADDR
+        read = bus.read_word_data(address, 2)
+        swapped = struct.unpack("<H", struct.pack(">H", read))[0]
+        voltage = swapped * 1.25 / 1000 / 16
+        return voltage
+    except OSError:
+        # If there is a collision, wait a tiny bit and try one more time
+        time.sleep(0.1)
+        read = bus.read_word_data(address, 2)
+        swapped = struct.unpack("<H", struct.pack(">H", read))[0]
+        voltage = swapped * 1.25 / 1000 / 16
+        return voltage
 
 def readCapacity(bus):
-    address = I2C_ADDR
-    read = bus.read_word_data(address, 4)
-    swapped = struct.unpack("<H", struct.pack(">H", read))[0]
-    capacity = swapped / 256
-    if capacity > 100:
-        capacity = 100
-    return capacity
+    try:
+        address = I2C_ADDR
+        read = bus.read_word_data(address, 4)
+        swapped = struct.unpack("<H", struct.pack(">H", read))[0]
+        capacity = swapped / 256
+        if capacity > 100:
+            capacity = 100
+        return capacity
+    except OSError:
+        time.sleep(0.1)
+        read = bus.read_word_data(address, 4)
+        swapped = struct.unpack("<H", struct.pack(">H", read))[0]
+        capacity = swapped / 256
+        if capacity > 100:
+            capacity = 100
+        return capacity
 
 bus = smbus.SMBus(1)  # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
